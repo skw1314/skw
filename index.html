@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.min.css">
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        111
+    </div>
+    <script>
+        var div=document.querySelector('.div');
+        var startTime = 0;
+        var isMove = flase;
+        div.addEventListener('touchstart',function(){
+            startTime = new Date() * 1;
+
+        })
+        div.addEventListener('touchmove',function(){
+            isMove = true;
+        })
+        div.addEventListener('touchend',function(){
+            var endTime = new Date() * 1;
+            if((endTime - starTime)< 150 && ! isMove){
+                div.style.background = 'red';
+            }
+            startTime = 0;
+            isMove = false;
+        })
+    </script>
+</body>
+</html>
